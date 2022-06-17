@@ -1,6 +1,7 @@
 import Express from "express";
 import multer from "multer";
 import { fileURLToPath } from "url";
+import { Storage } from "@google-cloud/storage";
 import path, { dirname } from "path";
 import { PDF_API_KEY } from "../app.js";
 

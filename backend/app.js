@@ -31,18 +31,15 @@ const startServer = async () => {
   });
   PDF_API_KEY = pdf.payload.data.toString();
   if (!DEV) {
-    const [pub] = await sm.accessSecretVersion({
-      name: SECRET_MANAGER_CERT,
-    });
 
-    const [prvt] = await sm.accessSecretVersion({
-      name: SECRET_MANAGER_PK,
-    });
+    // const [prvt] = await sm.accessSecretVersion({
+    //   name: SECRET_MANAGER_PK,
+    // });
 
-    const sslOptions = {
-      key: prvt.payload.data.toString(),
-      cert: pub.payload.data.toString(),
-    };
+    // const sslOptions = {
+    //   key: prvt.payload.data.toString(),
+    //   cert: pub.payload.data.toString(),
+    //};
 
     https.createServer(sslOptions, app).listen(PORT, () => {
       console.log("Secure Server Listening on port:" + PORT);
